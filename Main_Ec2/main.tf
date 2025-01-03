@@ -1,8 +1,8 @@
 resource "aws_instance" "web" {
-  ami                    = "ami-0277155c3f0ab2930"      #change ami id for different region
+  ami                    = "ami-01816d07b1128cd2d"      #change ami id for different region
   instance_type          = "t2.large"
-  key_name               = "vscode"              #change key name as per your setup
-  vpc_security_group_ids = [aws_security_group.devops-project-veera.id]
+  key_name               = "achi"              #change key name as per your setup
+  vpc_security_group_ids = [aws_security_group.devops-project-achi.id]
   user_data              = templatefile("./install.sh", {})
 
   tags = {
@@ -14,8 +14,8 @@ resource "aws_instance" "web" {
   }
 }
 
-resource "aws_security_group" "devops-project-veera" {
-  name        = "devops-project-veera"
+resource "aws_security_group" "devops-project-achi" {
+  name        = "devops-project-achi"
   description = "Allow TLS inbound traffic"
 
   ingress = [
